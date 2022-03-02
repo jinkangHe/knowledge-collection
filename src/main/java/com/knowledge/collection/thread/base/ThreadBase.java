@@ -41,20 +41,48 @@ public class ThreadBase {
 
     private static void callableMethod() throws ExecutionException, InterruptedException {
         CustomCallable customCallable = new CustomCallable();
-        FutureTask<String> futureTask1 = new FutureTask(customCallable);
-        FutureTask<String> futureTask2 = new FutureTask(customCallable);
+        FutureTask<Double> futureTask1 = new FutureTask(customCallable);
+        FutureTask<Double> futureTask2 = new FutureTask(customCallable);
 
         Thread thread1 = new Thread(futureTask1, "t5");
         Thread thread2 = new Thread(futureTask2, "t6");
         thread1.start();
         thread2.start();
+
+        // 启动另外一个线程去监听任务状态
         new Thread(() -> {
-            boolean flag = true;
-            while (flag) {
-                System.out.println(futureTask1.isCancelled());
-                flag = false;
+            while (true) {
+                if (futureTask1.isDone()) {
+                    try {
+                        System.out.println(Thread.currentThread() + "futureTask1" + futureTask1.get());
+                        break;
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+                }
+
             }
+
         }).start();
+        new Thread(() -> {
+            while (true) {
+                if (futureTask2.isDone()) {
+                    try {
+                        System.out.println(Thread.currentThread() + "futureTask2" + futureTask2.get());
+                        break;
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+        }).start();
+
+        // get方法会阻塞当前线程  所以需要放在最后
         System.out.println(futureTask1.get());
         System.out.println(futureTask2.get());
 

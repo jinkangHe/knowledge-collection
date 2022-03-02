@@ -1,13 +1,23 @@
 package com.knowledge.collection.thread.base;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 
-public class CustomCallable implements Callable<String> {
+/**
+ * callable 一般用于耗时的计算
+ */
+public class CustomCallable implements Callable<Double> {
     @Override
-    public String call() throws InterruptedException {
-        double random = Math.random();
-        long duration = (long) (random*10000l);
-        Thread.sleep(duration);
-        return Thread.currentThread().getName() + "沉睡了" + duration + "ms";
+    public Double call() throws InterruptedException {
+        double total = 10;
+        //计算结果
+        double result = 0;
+        while (result < total) {
+            //模拟耗时的计算
+            double random = Math.random();
+            result += random;
+            TimeUnit.SECONDS.sleep(1);
+        }
+        return result;
     }
 }
