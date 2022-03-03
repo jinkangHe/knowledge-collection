@@ -4,7 +4,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 /**
- * callable 一般用于耗时的计算
+ * callable 一般用于耗时的计算 有返回值
  */
 public class CustomCallable implements Callable<Double> {
     @Override
@@ -16,7 +16,7 @@ public class CustomCallable implements Callable<Double> {
             //模拟耗时的计算
             double random = Math.random();
             result += random;
-            TimeUnit.SECONDS.sleep(1);
+            TimeUnit.MILLISECONDS.sleep(500);
         }
         return result;
     }
