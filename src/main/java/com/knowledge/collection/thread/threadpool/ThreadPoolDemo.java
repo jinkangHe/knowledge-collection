@@ -27,16 +27,28 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class ThreadPoolDemo {
     public static void main(String[] args) {
-        //ExecutorService executorService = Executors.newCachedThreadPool();
+
+        ExecutorService executorService = Executors.newCachedThreadPool();
         AtomicInteger number = new AtomicInteger(0);
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.SECONDS, new ArrayBlockingQueue<>(15), r -> new Thread(r, "thread-" + number.getAndIncrement()));
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5
+                , 10
+                , 10
+                , TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(10)
+                , r -> new Thread(r, "thread-" + number.getAndIncrement())
+                , (r, executor) -> {
+                    int maximumPoolSize = executor.getMaximumPoolSize();
+                    long taskCount = executor.getTaskCount();
+                    System.out.println("maximumPoolSize=" + maximumPoolSize);
+                    System.out.println("taskCount=" + taskCount);
+                });
 
         CustomCallable customCallable = new CustomCallable();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 40; i++) {
             Future<Double> submit = threadPoolExecutor.submit(customCallable);
             new Thread(() -> {
                 while (true) {
-                    if(submit.isDone()) {
+                    if (submit.isDone()) {
                         try {
                             System.out.println(Thread.currentThread() + "执行的计算任务" + submit.get());
                         } catch (InterruptedException e) {
@@ -82,4 +94,6 @@ public class ThreadPoolDemo {
             }
         }).start();
     }
+
+
 }
