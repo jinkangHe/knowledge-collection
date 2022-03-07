@@ -1,6 +1,6 @@
-package com.knowledge.collection.thread.threadpool;
+package com.knowledge.thread.threadpool;
 
-import com.knowledge.collection.thread.base.CustomCallable;
+import com.knowledge.thread.base.CustomCallable;
 
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;

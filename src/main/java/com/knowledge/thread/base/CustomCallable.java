@@ -1,4 +1,4 @@
-package com.knowledge.collection.thread.base;
+package com.knowledge.thread.base;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;

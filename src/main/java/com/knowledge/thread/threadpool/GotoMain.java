@@ -1,4 +1,4 @@
-package com.knowledge.collection.thread.threadpool;
+package com.knowledge.thread.threadpool;
 
 import java.util.concurrent.TimeUnit;
 

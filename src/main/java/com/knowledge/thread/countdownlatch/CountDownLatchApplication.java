@@ -1,6 +1,5 @@
-package com.knowledge.collection.thread.countdownlatch;
+package com.knowledge.thread.countdownlatch;
 
-import java.sql.Time;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 

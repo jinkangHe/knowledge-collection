@@ -1,6 +1,4 @@
-package com.knowledge.collection.thread.countdownlatch;
-
-import com.knowledge.collection.thread.countdownlatch.CountDownLatchApplication;
+package com.knowledge.thread.countdownlatch;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;

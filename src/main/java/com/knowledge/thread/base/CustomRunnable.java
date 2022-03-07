@@ -1,4 +1,4 @@
-package com.knowledge.collection.thread.base;
+package com.knowledge.thread.base;
 
 public class CustomRunnable implements Runnable{
 
