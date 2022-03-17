@@ -12,13 +12,15 @@ import org.springframework.stereotype.Component;
  * @version 1.0
  * @date 2022/3/7 15:19
  */
-@Lazy(value = false)
+
 @Component
-public class TestFactorBean extends AbstractFactoryBean<LifeCircleBean> {
-    Logger logger = LoggerFactory.getLogger(TestFactorBean.class);
+public class TestFactoryBean extends AbstractFactoryBean<LifeCircleBean> {
+    Logger logger = LoggerFactory.getLogger(TestFactoryBean.class);
+
     @Override
-    public void afterPropertiesSet() {
-        logger.info("afterPropertiesSet...");
+    public void afterPropertiesSet() throws Exception {
+        super.setSingleton(false);
+        super.afterPropertiesSet();
     }
 
     @Override

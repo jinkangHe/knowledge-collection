@@ -16,7 +16,7 @@ public class AfterStart implements CommandLineRunner {
     ApplicationContext applicationContext;
     @Override
     public void run(String... args) {
-        Object bean = applicationContext.getBean("&testFactorBean");
+        Object bean = applicationContext.getBean("testFactoryBean");
         System.out.println("bean = " + bean);
 
     }
