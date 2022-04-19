@@ -22,27 +22,8 @@ import java.time.LocalDateTime;
  */
 @SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
 @ComponentScan(value = "com.knowledge.spring.*")
-public class AppStarter implements CommandLineRunner {
+public class AppStarter{
     public static void main(String[] args) {
         SpringApplication.run(AppStarter.class, args);
-    }
-
-    @Autowired
-    ObjectMapper objectMapper;
-    @Override
-    public void run(String... args) throws JsonProcessingException {
-        LocalDateEntity localDateEntity = new LocalDateEntity();
-        LocalDate localDate = LocalDate.now();
-        LocalDateTime localDateTime = LocalDateTime.now();
-
-        localDateEntity.setDate(localDate);
-        localDateEntity.setDateTime(localDateTime);
-        ObjectMapper mapper = new ObjectMapper();
-        String s = objectMapper.writeValueAsString(localDateEntity);
-        System.out.println("序列化=" + s);
-
-        String json = "{\"date\":\"2022-03-09\",\"dateTime\":\"2022-03-09 15:54:51\"}";
-        LocalDateEntity obj = objectMapper.readValue(json, LocalDateEntity.class);
-        System.out.println("反序列化=" + obj);
     }
 }
