@@ -1,4 +1,4 @@
-package com.knowledge.spring.lifecircle.bean;
+package com.knowledge.spring.lifecircle;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

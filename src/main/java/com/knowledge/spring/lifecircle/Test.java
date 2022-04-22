@@ -1,4 +1,4 @@
-package com.knowledge.spring.lifecircle.bean;
+package com.knowledge.spring.lifecircle;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
