@@ -7,12 +7,12 @@
 
 动态代理：
 
-1. jdk动态代理：com.knowledge.proxy.jdk
-2. cglib动态代理：com.knowledge.proxy.cglib
+1. jdk动态代理：com.knowledge.proxy.jdk(待更新)
+2. cglib动态代理：com.knowledge.proxy.cglib(待更新)
 
 Spring：
 
-1. Bean生命周期：
-2. FactoryBean：
-3. Aop: com.knowledge.spring.aop
+1. Bean生命周期：com.knowledge.spring.lifecircle(待更新)
+2. FactoryBean：com.knowledge.spring.factorybean
+3. Aop: com.knowledge.spring.aop(待更新)
 4. LoaclDate序列化、反序列化：com.knowledge.spring.json
