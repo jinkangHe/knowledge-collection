@@ -8,7 +8,7 @@
 动态代理：
 
 1. jdk动态代理：com.knowledge.proxy.jdk(待更新)
-2. cglib动态代理：com.knowledge.proxy.cglib(待更新)
+2. cglib动态代理：com.knowledge.proxy.cglib
 
 Spring：
 
