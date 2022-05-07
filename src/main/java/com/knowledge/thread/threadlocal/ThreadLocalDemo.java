@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 public class ThreadLocalDemo {
 
     public static void main(String[] args) {
-        SecurityContext securityContext = new SecurityContext();
 
         //模拟一个接收到请求 tomcat开启了一个线程
         new Thread(() -> {
@@ -24,7 +23,7 @@ public class ThreadLocalDemo {
             //模拟登录认证
             Authentication authentication = login("hjk", "manager");
             // 保存登录认证信息
-            securityContext.setContext(authentication);
+            SecurityContext.setContext(authentication);
 
             //业务
             doService();
@@ -36,7 +35,7 @@ public class ThreadLocalDemo {
             Authentication authentication = login("蟑螂恶霸", "boss");
 
             // 保存登录认证信息
-            securityContext.setContext(authentication);
+            SecurityContext.setContext(authentication);
 
             //业务
             doService();
